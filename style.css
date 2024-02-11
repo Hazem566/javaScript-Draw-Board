@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 * {
     padding: 0;
     margin: 0;
@@ -5,6 +6,143 @@
 }
 body {
     display: grid;
-    background-color: #bfbfbf;
+    background-color: #0070FF;
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+    align-content: center;
 }
+section {
+    display: flex;
+    padding: 0 1rem;
+    gap: 1rem;
+}
+article {
+    border-radius: 1rem;
+    box-shadow: 0 6px 9px rgba(0,0,0, 0.2);
+    max-height: 648px;
+    background-color: #f5f5f5;
+}
+article:nth-child(1) {
+    border: 0.3rem solid #fff;
+    width: 210px;
+    padding: 0.7rem 1rem 0;
+    display: grid;
+}
+article:nth-child(2) {
+    flex: 1;
+}
+h2 {
+    margin-bottom: 0.5rem;
+}
+span {
+    margin-left: 0.4rem;
+    font-size: 1.2rem;
+}
+.options {
+    list-style: none;
+}
+.row {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+.option {
+    margin: 0 0 0.4rem 0.9rem;
+    cursor: pointer;
+}
+.active {
+    color: rgb(21, 82, 196);
+}
+.draw__board {
+    overflow: hidden;
+}
+#canvas0 {
+    width: 100%;
+    height: 100%;
+}
+.tool:not(.active):hover {
+    color: rgb(21, 82, 196);
+}
+.colors  .options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+}
+.colors .option {
+    border-radius: 50%;
+    height: 26px;
+    width: 26px;
+    position: relative;
+    box-shadow: 0 0 7px rgb(128, 128, 128);
+}
+.colors .option.selected::before{
+    content: '';
+    background-color: inherit;
+    border-radius: inherit;
+    height: 10px;
+    width: 10px;
+    border: 3px solid #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.colors .option:nth-child(1) {
+    background-color: #fff;
+}
+.colors .option:nth-child(1).selected::before{
+    background-color: darkgray;
+}
+.colors .option:nth-child(2) {
+    background-color: #000;
+}
+.colors .option:nth-child(3) {
+    background-color: red;
+}
+.colors .option:nth-child(4) {
+    background-color: green;
+}
+.colors .option:nth-child(5) {
+    background-color: #0070FF;
+}
+#color__picker {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    opacity: 0;
+    cursor: pointer;
+}
+#size__slider {
+    transform: translate(0, 7px) scaleX(1.1);
+    width: 100%;
+    appearance: none;
+    border: 0.15rem solid rgba(0,0,0,0.8);
+    border-radius: 0.65rem;
+    height: 1.14rem;
+}
+#size__slider::-moz-range-thumb {
+    background-color: #0070FF;
+    border: none;
+}
+.buttons {
+    display: grid;
+    row-gap: 0.4rem;
+    align-self: flex-end;
+    padding-top: 15px;
+}
+button {
+    padding: 0.6rem;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid rgba(0,0,0, 0.8);
+    background-color: #fff;
+    color: #000;
+    border-radius: 0.4rem;
+    transition:all 100ms linear;
+}
+button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
 
