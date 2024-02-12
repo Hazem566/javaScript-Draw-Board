@@ -25,6 +25,9 @@ let snapshot;
 window.addEventListener('load', () => {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = selectedColor;
 });
 
 clear.addEventListener('click', () => {
@@ -78,6 +81,15 @@ const drawCircle = (e) => {
     fillColor.checked ? ctx.fill() : ctx.stroke();
 };
 
+const drawTriangle = (e) => {
+    ctx.beginPath();
+    ctx.moveTo(mouse.x, mouse.y);
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.lineTo(mouse.x*2-e.offsetX, e.offsetY);
+    ctx.closePath();
+    fillColor.checked?ctx.fill():ctx.stroke();
+}
+
 const startDraw = (e) => {
     isDrawing = true;
     mouse.x = e.offsetX;
@@ -99,17 +111,21 @@ const drawing = (e) => {
         drawRect(e);
     } else if(selectedTool === 'circle') {
         drawCircle(e);
+    } else if(selectedTool === 'triangle') {
+        drawTriangle(e);
     }
-    
 };
 
-canvas.addEventListener('mousedown', (e) => {
-    startDraw(e);
-})
-canvas.addEventListener('mousemove', (e) => {
-    drawing(e);
-})
-canvas.addEventListener('mouseup',() => isDrawing = false);
+save.addEventListener('click', () => {
+    const link = document.createElement('a');
+    link.download = `${Date.now()}.jpg`;
+    link.href = canvas.toDataURL();
+    link.click();
+});
+
+canvas.addEventListener('mousedown',e => {startDraw(e)});
+canvas.addEventListener('mousemove',e => {drawing(e)});
+canvas.addEventListener('mouseup',()=>isDrawing = false);
 
 
 

@@ -65,10 +65,12 @@ span {
 .tool:not(.active):hover {
     color: rgb(21, 82, 196);
 }
-.tool:nth-child(3):not(.active):hover img {
+.tool:nth-child(3):not(.active):hover img,
+.tool:nth-child(5):not(.active):hover img  {
     filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(950deg) brightness(100%) contrast(100%);
 }
-.tool:nth-child(3).active img{
+.tool:nth-child(3).active img,
+.tool:nth-child(5).active img {
     filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(950deg) brightness(100%) contrast(100%);
 }
 .colors  .options {
